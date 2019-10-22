@@ -21,10 +21,11 @@ using namespace std;
 int main(){
     Sculptor *f;
     vector <FiguraGeometrica*> v;
-    ifstream arquivo("escultor.txt");
+    ifstream arquivo;
     string s, aux;
     stringstream ss;
     int nx=1, ny=1, nz=1;
+    arquivo.open("escultor.txt");
     if(arquivo.is_open()){
         while(!arquivo.eof()){
             getline(arquivo,s);
@@ -83,8 +84,9 @@ int main(){
                 v.push_back(new CutEllipsoid(xcenter,ycenter,zcenter,rx,ry,rz));
             }
         }
+        cout << "Arquivo lido com sucesso!" << endl;
     }else{
-        cout << "Houve um erro ao abrir o arquivo!" << endl;
+        cout << "Houve um erro na leitura do arquivo!" << endl;
     }
     Sculptor figura(nx,ny,nz);
     for(int i=0;i<int(v.size());i++){
