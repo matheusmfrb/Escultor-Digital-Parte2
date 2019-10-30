@@ -22,14 +22,13 @@ int main(){
     Sculptor *f;
     vector <FiguraGeometrica*> v;
     ifstream arquivo;
-    string s, aux;
-    stringstream ss;
-    int nx=1, ny=1, nz=1;
     arquivo.open("escultor.txt");
+    string s="0", aux;
+    int nx=1, ny=1, nz=1;
     if(arquivo.is_open()){
         while(!arquivo.eof()){
             getline(arquivo,s);
-            ss << s;
+            stringstream ss(s);
             ss >> aux;
             if(aux.compare("dim")==0){
                 ss >> nx >> ny >> nz;
@@ -89,7 +88,7 @@ int main(){
         cout << "Houve um erro na leitura do arquivo!" << endl;
     }
     Sculptor figura(nx,ny,nz);
-    for(int i=0;i<int(v.size());i++){
+    for(int i=0;i<v.size();i++){
         v[i]->draw(figura);
     }
     figura.writeOFF("escultor.off");
