@@ -68,7 +68,7 @@ void Sculptor::writeOFF(string filename){
     }
     if(arquivo.is_open()){
         cout << "O arquivo foi aberto!" << endl;
-        arquivo << fixed << setprecision(1) << endl;
+        arquivo << fixed << setprecision(1);
         arquivo << "OFF" << endl;
         arquivo << vertices << " " << faces << " " << 0 << endl;
         for(int i=0;i<nx;i++){

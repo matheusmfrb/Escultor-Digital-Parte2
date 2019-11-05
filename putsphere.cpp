@@ -18,9 +18,9 @@ PutSphere::~PutSphere(){
 }
 
 void PutSphere::draw(Sculptor &v){
-    for(int i=xcenter;i<=radius;i++){
-        for(int j=ycenter;j<=radius;j++){
-            for(int k=zcenter;k<=radius;k++){
+    for(int i=xcenter-radius;i<=xcenter+radius;i++){
+        for(int j=ycenter-radius;j<=ycenter+radius;j++){
+            for(int k=zcenter-radius;k<=zcenter+radius;k++){
                 if((pow((i-xcenter),2)+pow((j-ycenter),2)+pow((k-zcenter),2)) <= pow(radius,2)){
                     v.setColor(r,g,b,a);
                     v.putVoxel(i,j,k);
